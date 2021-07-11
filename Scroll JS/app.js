@@ -64,6 +64,48 @@ const advantages = [
       },
 ]
 
+const tours = [
+  {
+      id: 1,
+      title: "Lorem ipsum dolor",
+      category: "Europe",
+      date: "august 14th, 2021",
+      destination: "Iceland",
+      duration: "6 days",
+      basicPrice: "2500"      
+    },
+
+    {
+      id: 2,
+      title: "Velit laoreet id",
+      category: "Europe",
+      date: "august 14th, 2019",
+      destination: "Trier",
+      duration: "14 days",
+      basicPrice: "1900"      
+    },
+
+    {
+      id: 3,
+      title: "Varius sit amet",
+      category: "Europe",
+      date: "august 14th, 2019",
+      destination: "Paris",
+      duration: "4 days",
+      basicPrice: "3975"      
+    },
+
+    {
+      id: 4,
+      title: "Neque egestas congue",
+      category: "Europe",
+      date: "august 14th, 2019",
+      destination: "Amsterdam",
+      duration: "10 days",
+      basicPrice: "7980"      
+    },
+  ];
+
 const date = document.getElementById('date');
 const navToggle = document.querySelector('.nav-toggle');
 const linksContainer = document.querySelector('.links-container');
@@ -71,6 +113,8 @@ const links = document.querySelector('.links');
 const scrollLinks = document.querySelectorAll('.scroll-link');
 const topLink = document.querySelector('.top-link');
 const navBar = document.getElementById('nav');
+const advantagesSection = document.getElementById('advantages');
+const toursSection = document.getElementById('tours');
 const mediaQuery = window.matchMedia('(min-width: 800px)');
 
 // ********** set date ************
@@ -85,7 +129,6 @@ const handleWindowChange = (width) => {
 }
 mediaQuery.addEventListener('change', handleWindowChange);
 handleWindowChange(mediaQuery);
-
 
 // ********** close links ************
 if(navToggle) {
@@ -161,14 +204,13 @@ if(scrollLinks) {
 
 window.addEventListener('DOMContentLoaded', function() {
     displayAdvantagesItems(advantages);
+    displayToursItems(tours);
   });
 
-const advantagesContainer = document.querySelector('.advantages-wrapper');
 
-
+// advantage items using appendChild() instead of inner.HTML
 const displayAdvantagesItems = (advantageItems) => {
-
-    let displayAdvantagesItems = advantageItems.map(function(item) {
+  let displayAdvantagesItems = advantageItems.map(function(item) {
     
       return ` <article class="advantage">
       <span class="advantage-icon"><img src="${item.img}" alt="advantage icon" class="advantage-img"></span>
@@ -180,7 +222,71 @@ const displayAdvantagesItems = (advantageItems) => {
       </div>
     </article>
     `;
-    }).join("");
-  
-    advantagesContainer.innerHTML = displayAdvantagesItems;  
+    })
+    .join("");
+
+    let card = document.createElement('div');
+    card.classList.add('advantages-wrapper');
+
+    card.innerHTML = displayAdvantagesItems;    
+    advantagesSection.appendChild(card);
 }
+
+const displayToursItems = (toursItems) => {
+  let displayToursItems = toursItems.map(function(tour) {
+    
+      return ` <article class="tour-card">
+      <div class="tour-img-container">
+        <img src="https://picsum.photos/id/${tour.id + 100}/300/200" class="tour-img" alt="" />
+        <p class="tour-date">${tour.date}</p>
+      </div>
+      <div class="tour-footer">
+        <h4 class="tour-title">${tour.title}</h4>
+        <div class="tour-info">
+          <p class="tour-country">
+            <span><i class="fas fa-map"></i></span> ${tour.destination}
+          </p>
+          <div class="tour-details">
+            <p>${tour.duration}</p>
+            <p>from $${tour.basicPrice}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    `;
+    })
+    .join("");
+
+    let tourCard = document.createElement('div');
+    tourCard.classList.add('featured-center', 'section-center');
+
+    tourCard.innerHTML = displayToursItems;    
+    toursSection.insertBefore(tourCard, tourLink)
+}
+
+const tourLink = document.querySelector('.tour-link');
+
+
+
+
+ 
+
+// advantage items using insertAdjacentHTML instead of inner.HTML
+
+// const displayAdvantagesItems = (advantageItems) => {
+//   let displayAdvantagesItems = advantageItems.map(function(item) {
+  
+//     return ` <article class="advantage">
+//     <span class="advantage-icon"><img src="${item.img}" alt="advantage icon" class="advantage-img"></span>
+//     <div class="advantage-info">
+//       <h4 class="advantage-title">${item.title}</h4>
+//       <p class="advantage-text">
+//         ${item.desc}
+//       </p>
+//     </div>
+//   </article>
+//   `;
+//   }).join("");
+
+//   advantagesContainer.insertAdjacentHTML('afterbegin', displayAdvantagesItems)
+// }

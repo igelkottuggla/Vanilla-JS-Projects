@@ -37,10 +37,12 @@ Variables
   --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
+  --special-gey: #afafaf;
   --clr-white: #fff;
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
+  --primary-green: #3fd0d4;
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-secondary: hsla(182, 63%, 54%);
   --clr-black: #222;
@@ -505,7 +507,7 @@ footer p {
 }
 
 .advantage-img {
-  width: 9rem;
+  width: 6rem;
   height: auto;
 }
 
@@ -530,7 +532,7 @@ footer p {
   }
 
   .advantage-img {
-    width: 7rem;
+    width: 4rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -560,6 +562,81 @@ footer p {
     width: 5rem;
   }
 }
+
+.featured-tours {
+  background: var(--clr-white);
+}
+.tour-card {
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
+  margin-bottom: 4rem;
+}
+.tour-card:hover {
+  box-shadow: var(--dark-shadow);
+}
+.tour-footer {
+  padding: 1.2rem 1.5rem;
+}
+.tour-title {
+  text-transform: capitalize;
+}
+.tour-country {
+  color: var(--primaryColor);
+  text-transform: capitalize;
+}
+.tour-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.tour-details p {
+  line-height: 0.2;
+  text-transform: capitalize;
+  color: var(--special-gey);
+  letter-spacing: 0.02rem;
+}
+.tour-country {
+  align-self: center;
+  color: var(--primary-green);
+}
+.tour-link {
+  text-align: center;
+}
+/* tour date */
+
+.tour-img {
+  width: 10rem;
+  height: auto;
+}
+.tour-img-container {
+  position: relative;
+}
+.tour-date {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--primary-green);
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .featured-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .tour-card {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+@media screen and (min-width: 1170px) {
+  .tour-card {
+    flex: 0 0 calc(33.3333% - 1rem);
+  }
+}
+
+
+/*   FEATURED TOURS */
 
 /* KEYFRAMES FOR ANIMATION */
 @keyframes bounce {
