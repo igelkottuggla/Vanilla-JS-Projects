@@ -73,6 +73,14 @@ body {
   line-height: 1.5;
   font-size: 0.875rem;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+}
 ul {
   list-style-type: none;
 }
