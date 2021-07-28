@@ -157,6 +157,11 @@ Stripe Styles
 .btn:hover {
   background: var(--clr-grey-5);
 }
+
+.toggle-btn {
+  position: fixed;
+  right: 2rem;
+}
 .nav-links {
   display: none;
 }
@@ -238,13 +243,14 @@ Stripe Styles
     text-transform: capitalize;
     letter-spacing: 1px;
     width: 10rem;
+    cursor: pointer;
   }
 }
 
 /* hero media query */
 @media screen and (min-width: 800px) {
   .hero::before {
-    background-size: contain;
+    background-size: cover;
     height: 100%;
   }
   .hero-center {
@@ -271,6 +277,7 @@ Stripe Styles
     grid-template-columns: 2fr 1fr;
     align-items: end;
     padding-bottom: 12vh;
+    padding-top: 13vh;
   }
   .hero-info h1 {
     max-width: 100%;
@@ -358,6 +365,7 @@ Stripe Styles
 
 /* links */
 .submenu {
+  margin-top: 1rem;
   background: var(--clr-white);
   box-shadow: var(--dark-shadow);
   position: absolute;
