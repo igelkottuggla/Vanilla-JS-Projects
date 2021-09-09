@@ -34,6 +34,10 @@ if (giftArticle) {
     const oneMin = 60 * 1000;
     const oneHour = 60 * oneMin;
     const oneDay = 24 * oneHour;
+    const initialDays = 10;
+    const initilaHours = 17;
+    const initialMinutes = parseInt('00');
+    const initialSecs = parseInt('0');
 
     const giveaway = giftArticle.querySelector('.giveaway');
     const deadline = giftArticle.querySelector('.deadline');
@@ -49,7 +53,14 @@ if (giftArticle) {
     let tempMonth = tempDate.getMonth();
     let tempDay = tempDate.getDate();
 
-    const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 17, 00, 0);
+    const futureDate = new Date(
+        tempYear,
+        tempMonth,
+        tempDay + initialDays,
+        initilaHours,
+        initialMinutes,
+        initialSecs
+    );
     // let futureDate = new Date(2021, 10, 24, 15, 59, 0);
 
     const year = futureDate.getFullYear();

@@ -15,7 +15,7 @@ if (slider) {
 
     const slidesChanging = () => {
         prevBtn.classList.toggle('btn-hidden', counter === 0);
-        nextBtn.classList.toggle('btn-hidden', counter === --slides.length);
+        nextBtn.classList.toggle('btn-hidden', counter === slides.length - 1);
 
         slides.forEach((slide) => {
             slide.style.transform = `translateX(-${counter * 100}%)`;
