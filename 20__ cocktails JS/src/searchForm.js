@@ -1,3 +1,5 @@
+'use strict';
+
 import get from './getElement.js';
 import showDrinks from './presentDrinks.js';
 
@@ -8,9 +10,9 @@ const input = get('[name="drink"]');
 const section = get('.section-center');
 
 form.addEventListener('keyup', (event) => {
-  event.preventDefault();
-  const value = input.value;
-  if (!value) return;
-  section.innerHTML = '';
-  showDrinks(`${baseURL}${value}`);
+    event.preventDefault();
+    const value = input.value;
+    if (!value) return;
+    section.innerHTML = '';
+    showDrinks(`${baseURL}${value}`);
 });

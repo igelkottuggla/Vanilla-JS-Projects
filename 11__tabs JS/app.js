@@ -1,18 +1,20 @@
+'use strict';
+
 const btns = document.querySelectorAll('.tab-btn');
 const about = document.querySelector('.about');
 const articles = document.querySelectorAll('.content');
 
 if (about) {
-    about.addEventListener('click', eventObject => {
+    about.addEventListener('click', (eventObject) => {
         const id = eventObject.target.dataset.id;
-        
-        if(id) {
-            btns.forEach(btn => {
+
+        if (id) {
+            btns.forEach((btn) => {
                 btn.classList.remove('active');
                 eventObject.target.classList.add('active');
             });
 
-            articles.forEach(article => {
+            articles.forEach((article) => {
                 article.classList.remove('active');
             });
 
@@ -20,5 +22,4 @@ if (about) {
             element.classList.add('active');
         }
     });
-};
-
+}

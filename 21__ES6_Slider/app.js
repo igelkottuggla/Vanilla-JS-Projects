@@ -1,24 +1,25 @@
+'use strict';
 import people from './data.js';
 
 const slider = document.querySelector('.slider');
 
 if (slider) {
-  const sliderContainer = slider.querySelector('.slider-container');
-  const nextBtn = slider.querySelector('.next-btn');
-  const prevBtn = slider.querySelector('.prev-btn');
+    const sliderContainer = slider.querySelector('.slider-container');
+    const nextBtn = slider.querySelector('.next-btn');
+    const prevBtn = slider.querySelector('.prev-btn');
 
-  sliderContainer.innerHTML = people
-    .map((person, index) => {
-      const { img, name, job, text } = person;
-      let position = 'next';
-      if (index === 0) {
-        position = 'active';
-      }
-      if (index === people.length - 1) {
-        position = 'last';
-      }
+    sliderContainer.innerHTML = people
+        .map((person, index) => {
+            const { img, name, job, text } = person;
+            let position = 'next';
+            if (index === 0) {
+                position = 'active';
+            }
+            if (index === people.length - 1) {
+                position = 'last';
+            }
 
-      return `<article class="slide ${position}">
+            return `<article class="slide ${position}">
               <img src="${img}" alt="${name}" class="img">
               <h4>${name}</h4>
               <p class="title">${job}</p>
@@ -27,46 +28,46 @@ if (slider) {
                 <div class="fas fa-quote-right"></div>
               </div>
             </article>`;
-    })
-    .join('');
+        })
+        .join('');
 
-  const startSlider = (type) => {
-    const active = slider.querySelector('.active');
-    const last = slider.querySelector('.last');
-    let next = active.nextElementSibling;
+    const startSlider = (type) => {
+        const active = slider.querySelector('.active');
+        const last = slider.querySelector('.last');
+        let next = active.nextElementSibling;
 
-    if (!next) {
-      next = sliderContainer.firstElementChild;
-    }
+        if (!next) {
+            next = sliderContainer.firstElementChild;
+        }
 
-    active.classList.remove(['active']);
-    last.classList.remove(['last']);
-    next.classList.remove(['next']);
+        active.classList.remove(['active']);
+        last.classList.remove(['last']);
+        next.classList.remove(['next']);
 
-    if (type === 'prev') {
-      active.classList.add('next');
-      last.classList.add('active');
-      next = last.previousElementSibling;
+        if (type === 'prev') {
+            active.classList.add('next');
+            last.classList.add('active');
+            next = last.previousElementSibling;
 
-      if (!next) {
-        next = sliderContainer.lastElementChild;
-      }
+            if (!next) {
+                next = sliderContainer.lastElementChild;
+            }
 
-      next.classList.remove(['next']);
-      next.classList.add('last');
-      return;
-    }
+            next.classList.remove(['next']);
+            next.classList.add('last');
+            return;
+        }
 
-    active.classList.add('last');
-    last.classList.add('next');
-    next.classList.add('active');
-  };
+        active.classList.add('last');
+        last.classList.add('next');
+        next.classList.add('active');
+    };
 
-  nextBtn.addEventListener('click', () => {
-    startSlider();
-  });
+    nextBtn.addEventListener('click', () => {
+        startSlider();
+    });
 
-  prevBtn.addEventListener('click', () => {
-    startSlider('prev');
-  });
+    prevBtn.addEventListener('click', () => {
+        startSlider('prev');
+    });
 }
