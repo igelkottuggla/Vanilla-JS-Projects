@@ -6,11 +6,7 @@ const displayDrink = (data) => {
     hideLoading();
 
     const drink = data.drinks[0];
-    const {
-        strDrinkThumb: image,
-        strDrink: name,
-        strInstructions: desc,
-    } = drink;
+    const { strDrinkThumb: image, strDrink: name, strInstructions: desc } = drink;
 
     const list = [
         drink.strIngredient1,
@@ -38,8 +34,6 @@ const displayDrink = (data) => {
             return `<li><i class="far fa-check-square"></i>${item}</li>`;
         })
         .join('');
-
-    console.log(drink, list);
 };
 
 export default displayDrink;
